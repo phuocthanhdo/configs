@@ -37,17 +37,19 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'rust-lang/rust.vim'
 
 " GUI enhancements
-Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
-Plug 'nlknguyen/papercolor-theme'
+Plug 'itchyny/lightline.vim'
+Plug 'joshdick/onedark.vim'
 
 " Fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+Plug 'airblade/vim-gitgutter'
+
 call plug#end()
 set background=dark
-colorscheme PaperColor
+colorscheme onedark
 
 " menuone: popup even when there's only one match
 " noinsert: Do not insert text until a selection is made
@@ -171,6 +173,11 @@ nnoremap <silent> <space>f   <cmd>lua vim.lsp.buf.formatting()<CR>
 " Goto previous/next diagnostic warning/error
 nnoremap <silent> g[ <cmd>lua vim.diagnostic.goto_prev()<CR>
 nnoremap <silent> g] <cmd>lua vim.diagnostic.goto_next()<CR>
+
+command Cb ! cargo build
+command Ct ! cargo test
+nnoremap <Leader>ct :! cargo test<CR>
+nnoremap <Leader>cb :! cargo build<CR>
 
 " =============================================================================
 " # Rust Analyzer Configuration
