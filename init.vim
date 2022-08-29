@@ -40,6 +40,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'itchyny/lightline.vim'
 Plug 'joshdick/onedark.vim'
+Plug 'projekt0n/github-nvim-theme'
 
 " Fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -48,8 +49,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 
 call plug#end()
-set background=dark
-colorscheme onedark
+colorscheme github_dimmed
 
 " menuone: popup even when there's only one match
 " noinsert: Do not insert text until a selection is made
@@ -165,7 +165,7 @@ nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gi    <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
 
-nnoremap <silent> <space>D   <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> <space>d   <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> <space>a   <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <silent> <space>e   <cmd>lua vim.diagnostic.open_float()<CR>
 nnoremap <silent> <space>f   <cmd>lua vim.lsp.buf.formatting()<CR>
@@ -207,14 +207,37 @@ lspconfig.rust_analyzer.setup {
   capabilities = capabilities,
 }
 
--- Enable diagnostics
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = true,
-    signs = true,
-    update_in_insert = true,
+-- Add borders for float windows, as many colorscheme use the normal_float color as background color
+
+vim.diagnostic.config {     
+    float = { border = "rounded" }, 
+}
+
+vim.lsp.handlers["textDocument/hover"] =
+  vim.lsp.with(
+  vim.lsp.handlers.hover,
+  {
+    border = "rounded"
   }
 )
+
+vim.lsp.handlers["textDocument/signatureHelp"] =
+  vim.lsp.with(
+  vim.lsp.handlers.signature_help,
+  {
+    border = "rounded"
+  }
+)
+
+-- Enable diagnostics
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+--   vim.lsp.diagnostic.on_publish_diagnostics, {
+--     virtual_text = true,
+--     signs = true,
+--     update_in_insert = true,
+--     border = "single"
+--   }
+-- )
 END
 
 " Enable type inlay hints
