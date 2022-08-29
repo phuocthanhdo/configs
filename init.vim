@@ -174,8 +174,6 @@ nnoremap <silent> <space>f   <cmd>lua vim.lsp.buf.formatting()<CR>
 nnoremap <silent> g[ <cmd>lua vim.diagnostic.goto_prev()<CR>
 nnoremap <silent> g] <cmd>lua vim.diagnostic.goto_next()<CR>
 
-command Cb ! cargo build
-command Ct ! cargo test
 nnoremap <Leader>ct :! cargo test<CR>
 nnoremap <Leader>cb :! cargo build<CR>
 

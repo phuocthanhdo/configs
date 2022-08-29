@@ -7,3 +7,6 @@ shell:
   program: /usr/local/bin/fish
   args:
     - --login
+key_bindings:
+  # Pass Cmd + p into nvim
+  - { key: P, mods: Command, chars: "\x1bp"                 }
