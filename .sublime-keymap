@@ -1,7 +1,7 @@
 [
     {
         "command": "lsp_code_actions",
-        "keys": [ " ", "a" ],
+        "keys": [ "primary+a" ],
         "context": [
             {
                 "key": "setting.command_mode",
