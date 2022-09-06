@@ -40,7 +40,6 @@ Plug 'rust-lang/rust.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'itchyny/lightline.vim'
 Plug 'joshdick/onedark.vim'
-Plug 'projekt0n/github-nvim-theme'
 
 " Fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -49,7 +48,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 
 call plug#end()
-colorscheme github_dimmed
+colorscheme onedark
 
 " menuone: popup even when there's only one match
 " noinsert: Do not insert text until a selection is made

@@ -1,6 +1,6 @@
 window:
   dimensions:
-    columns: 192
+    columns: 212
     lines: 96
 shell:
   # fish_add_path <cargo_path> if not set
