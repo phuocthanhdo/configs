@@ -1,0 +1,13 @@
+// Settings in here override those in "LSP-rust-analyzer/LSP-rust-analyzer.sublime-settings"
+{
+	"settings": {
+		"rust-analyzer.inlayHints.enable": false,
+		"rust-analyzer.check.command": "clippy",
+		"rust-analyzer.check.features": "all",
+		"rust-analyzer.cargo.features": "all",
+		"rust-analyzer.check.invocationLocation": "root",
+		"rust-analyzer.cargo.buildScripts.invocationLocation": "root",
+		"rust-analyzer.cargo.buildScripts.overrideCommand": "cargo check --quiet --workspace --message-format=json --all-targets"
+	}
+}
+
