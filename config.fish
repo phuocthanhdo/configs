@@ -14,6 +14,13 @@ if status is-interactive
 end
 
 function fish_prompt
-  set_color green
-  echo "$USER> "
+    set_color blue
+    echo -n $USER"@"
+
+    set_color green
+    # `path basename $PWD` is the fish-specific way to get the last path component
+    echo -n (path basename $PWD)
+
+    set_color normal
+    echo -n "> "
 end
