@@ -12,3 +12,8 @@ abbr -a gpu 'git pull upstream'
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
+
+function fish_prompt
+  set_color green
+  echo "$USER> "
+end
